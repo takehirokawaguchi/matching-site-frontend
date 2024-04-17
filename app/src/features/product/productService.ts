@@ -1,6 +1,7 @@
 import axios, { AxiosRequestConfig } from "axios";
 
-const BACKEND_DOMAIN = "http://localhost:8000"
+// const BACKEND_DOMAIN = "http://localhost:8000"
+const BACKEND_DOMAIN = "https://matching-site-backend.onrender.com/"
 
 const PRODUCT_URL = `${BACKEND_DOMAIN}/api/products/`
 
@@ -56,7 +57,7 @@ const fetchMyData = async (user_id: number) => {
 // プロダクト情報を取得
 const fetchProduct = async (uidString: string) => {
 
-  const PRODUCT_URL = `http://127.0.0.1:8000/api/products/${uidString}/`
+  const PRODUCT_URL = `${BACKEND_DOMAIN}/api/products/${uidString}/`
 
   const response = await axios.get(PRODUCT_URL)
 

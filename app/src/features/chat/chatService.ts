@@ -8,7 +8,8 @@ interface FormData {
   is_read: boolean;
 }
 
-const BACKEND_DOMAIN = "http://localhost:8000"
+// const BACKEND_DOMAIN = "http://localhost:8000"
+const BACKEND_DOMAIN = "https://matching-site-backend.onrender.com/"
 
 // ユーザー情報を取得
 const fetchMessageList = async (accessToken: string, user_id: number) => {
@@ -29,7 +30,7 @@ const fetchMessageList = async (accessToken: string, user_id: number) => {
 // 特定ユーザーとのチャット一覧を取得
 const fetchMessageDetail = async (accessToken: string, user_id: number, uidString: string) => {
 
-  const CHAT_URL = `http://127.0.0.1:8000/api/get-messages/${user_id}/${uidString}`
+  const CHAT_URL = `${BACKEND_DOMAIN}/api/get-messages/${user_id}/${uidString}`
   const config: AxiosRequestConfig = {
     headers: {
       'Content-Type': 'multipart/form-data',
@@ -45,7 +46,7 @@ const fetchMessageDetail = async (accessToken: string, user_id: number, uidStrin
 // チャット相手のデータを取得
 const fetchUserData = async (accessToken: string, uidString: string) => {
 
-  const USERDATA_URL = `http://127.0.0.1:8000/api/profile/${uidString}`
+  const USERDATA_URL = `${BACKEND_DOMAIN}/api/profile/${uidString}`
   const config: AxiosRequestConfig = {
     headers: {
       'Content-Type': 'multipart/form-data',
@@ -61,7 +62,7 @@ const fetchUserData = async (accessToken: string, uidString: string) => {
 // チャットの内容を送信
 const sendMessage = async (accessToken: string, formData: FormData) => {
 
-  const SENDMESSAGE_URL = 'http://127.0.0.1:8000/api/send-message/'
+  const SENDMESSAGE_URL = `${BACKEND_DOMAIN}/api/send-message/`
   const config: AxiosRequestConfig = {
     headers: {
       'Content-Type': 'multipart/form-data',
